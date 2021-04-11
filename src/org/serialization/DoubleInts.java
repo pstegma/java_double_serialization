@@ -28,13 +28,13 @@ public class DoubleInts {
 	 * @return array of ints with 32 least significant (<i>right half</i>) and 32 most significant (<i>left half</i>) bits of the double
 	 */
 	public static int[] split(double value) {
-		System.out.println("Splitting " + value);
-        long lvalue  = Double.doubleToRawLongBits(value);
-        long intMask = 0xFFFFFFFFFFFFFFFFL >>> 32;
-        long least = lvalue & intMask;
-        long most = (lvalue >>> 32) & intMask;
-        return new int[] {0x0 | (int)least, 
-		          0x0 | (int)most};
+	    System.out.println("Splitting " + value);
+	    long lvalue  = Double.doubleToRawLongBits(value);
+            long intMask = 0xFFFFFFFFFFFFFFFFL >>> 32;
+	    long least = lvalue & intMask;
+	    long most = (lvalue >>> 32) & intMask;
+            return new int[] {0x0 | (int)least, 
+	                      0x0 | (int)most};
 	}
 	
 	/**
@@ -44,11 +44,11 @@ public class DoubleInts {
 	 * @return double value obtained by joining ints
 	 */
 	public static double ligate(int[] splits) {
-		System.out.println("Constructing double from " + splits[0] + " and " + splits[1]);
-		long most  = (long)splits[1] << 32;
-        long least = (long)splits[0];
-        least = least & (0xFFFFFFFFFFFFFFFFL >>> 32);
-        return Double.longBitsToDouble(most | least);
+	    System.out.println("Constructing double from " + splits[0] + " and " + splits[1]);
+	    long most  = (long)splits[1] << 32;
+	    long least = (long)splits[0];
+	    least = least & (0xFFFFFFFFFFFFFFFFL >>> 32);
+	    return Double.longBitsToDouble(most | least);
 	}
 	
 	
@@ -78,9 +78,8 @@ public class DoubleInts {
         System.out.println("Test (" + (ntests+1) + "): " + testValue + " " + Double.toHexString(testValue));
         int[] splits = DoubleInts.split(testValue);
         double ligat = DoubleInts.ligate(splits);
-        correct = Double.toHexString(testValue).contentEquals(Double.toHexString(ligat));
-        if (!correct) {
-            throw new RuntimeException("Result was not correct!");
+        if (!Double.toHexString(testValue).contentEquals(Double.toHexString(ligat))) {
+           throw new RuntimeException("Result was not correct!");
         }
     }
 }
