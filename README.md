@@ -1,7 +1,7 @@
 # Serialization of Java doubles by integer splits
 
 It is often necessary to store floating point numbers that were derived computationally in a non-binary format without loss of information, e.g. in
-(JSON) text files. The Java (Double class)[https://docs.oracle.com/javase/10/docs/api/java/lang/Double.html] provides
+(JSON) text files. The Java [Double class](https://docs.oracle.com/javase/10/docs/api/java/lang/Double.html) provides
 a way to obtain an exact presentation of a `double` value using the [toHexString method](https://docs.oracle.com/javase/10/docs/api/java/lang/Double.html#toHexString(double)).
 Java can also deserialize the produced hex-strings to a `double` value with the [valueOf method](https://docs.oracle.com/javase/10/docs/api/java/lang/Double.html#valueOf(java.lang.String)).
 The [R](https://www.r-project.org/) base package function `as.double` can also parse hex-strings as produced by Java's `toHexString` method.
