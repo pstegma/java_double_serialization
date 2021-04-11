@@ -34,7 +34,7 @@ public class DoubleInts {
         long least = lvalue & intMask;
         long most = (lvalue >>> 32) & intMask;
         return new int[] {0x0 | (int)least, 
-        				  0x0 | (int)most};
+		          0x0 | (int)most};
 	}
 	
 	/**
@@ -59,6 +59,7 @@ public class DoubleInts {
     public static void main() {
         double testValue;
     	Random rng = new Random();
+        // Other number ranges can be tested by modifying rmin and rmax
         double rmin = -1.0;
         double rmax = 1.0;
         boolean correct;
