@@ -56,7 +56,7 @@ public class DoubleInts {
 	 * Tests {@link #split(double)} and {@link #ligate(int[])} with randomly sampled
 	 * double values.
 	 */
-    public static void main() {
+    public static void main(String[] args) {
         double testValue;
     	Random rng = new Random();
         // Other number ranges can be tested by modifying rmin and rmax
