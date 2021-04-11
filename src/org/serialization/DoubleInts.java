@@ -14,6 +14,9 @@ package org.serialization;
 import java.util.Random;
 
 /**
+ * Example code to split double values into integers and to reconstruct double values from
+ * resulting splits.
+ *
  * @author pstegma
  */
 public class DoubleInts {
